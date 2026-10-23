@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> 48H0URs— Websites for Kenyan Businesses, Live in 48 Hours</title>
+<meta name="description" content="Clean, fast, mobile-friendly websites for Kenyan shops, salons, restaurants, clinics and schools. WhatsApp button included. Live in 48 hours. From 1,000 KSH.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== EDIT COLOURS HERE ===== */
+  :root{
+    --cobalt:#1B3FD1;   /* main brand blue */
+    --deep:#0E1B52;     /* dark navy: hero, footer */
+    --orange:#FF6B1A;   /* accent: key buttons, highlights */
+    --bg:#F4F6FF;       /* page background */
+    --ink:#161B33;      /* text */
+    --wa:#1FAF5A;       /* WhatsApp green */
+    --display:'Bricolage Grotesque', system-ui, sans-serif;
+    --body:'Public Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+  .wrap{width:min(1080px,92%);margin-inline:auto}
+  h1,h2,h3{font-family:var(--display);line-height:1.1}
+  h1{font-weight:800}
+  h2{font-weight:800;font-size:clamp(1.9rem,4.5vw,2.7rem);margin-bottom:1.5rem}
+  section{padding:4rem 0}
+
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 1.6rem;border-radius:12px;font-weight:700;text-decoration:none;transition:transform .15s;border:2px solid transparent}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-wa{background:var(--wa);color:#fff}
+  .btn-line{border-color:#fff;color:#fff}
+  .btn-orange{background:var(--orange);color:#fff}
+
+  /* HERO */
+  .hero{background:var(--deep);color:#fff;padding:2.5rem 0 4rem}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.25rem;margin-bottom:3.5rem}
+  .hero h1{font-size:clamp(2.4rem,7vw,4.6rem);max-width:16ch;margin-bottom:1.3rem}
+  .hero h1 em{font-style:normal;background:var(--orange);padding:0 .25em;border-radius:8px}
+  .hero .lead{font-size:1.15rem;max-width:56ch;margin-bottom:1.8rem;opacity:.95}
+  .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.6rem}
+  .find{opacity:.85}
+  .facts{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.2rem}
+  .facts div{background:rgba(255,255,255,.09);border-radius:14px;padding:.8rem 1.2rem}
+  .facts b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--orange)}
+
+  /* ABOUT */
+  .about .wrap{max-width:760px}
+  .about p{font-size:1.15rem;margin-bottom:1rem}
+  .about .bold{font-weight:700;color:var(--cobalt)}
+
+  /* SKILLS */
+  .skills{background:#fff}
+  .skill-grid{display:grid;gap:1.2rem}
+  @media(min-width:640px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:960px){.skill-grid{grid-template-columns:repeat(3,1fr)}}
+  .skill{background:var(--bg);border-radius:16px;padding:1.4rem}
+  .skill .ico{font-size:1.8rem}
+  .skill h3{font-size:1.15rem;margin:.4rem 0}
+  .skill p{font-size:.97rem;color:#454b6b}
+
+  /* PACKAGES */
+  .pack-grid{display:grid;gap:1.2rem}
+  @media(min-width:700px){.pack-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.pack-grid{grid-template-columns:repeat(4,1fr)}}
+  .pack{background:#fff;border:2px solid #d5dbf5;border-radius:18px;padding:1.5rem;display:flex;flex-direction:column;position:relative}
+  .pack.best{border-color:var(--cobalt);box-shadow:0 10px 0 var(--cobalt);margin-bottom:10px}
+  .pack .tag{position:absolute;top:-14px;left:1.2rem;background:var(--orange);color:#fff;font-weight:700;font-size:.85rem;padding:.2rem .8rem;border-radius:999px}
+  .pack h3{font-size:1.3rem}
+  .pack .price{font-family:var(--display);font-weight:800;font-size:2rem;color:var(--cobalt);margin:.3rem 0 1rem}
+  .pack .price small{font-family:var(--body);font-size:.85rem;color:#5a6080;font-weight:500}
+  .pack ul{list-style:none;padding:0;display:grid;gap:.5rem;font-size:.97rem;flex:1;margin-bottom:1.3rem}
+  .pack li::before{content:"✅ ";}
+  .pack .btn{justify-content:center;background:var(--cobalt);color:#fff}
+  .pack.care{background:var(--deep);color:#fff;border-color:var(--deep)}
+  .pack.care .price{color:var(--orange)}
+  .pack.care .price small{color:#c9d0f5}
+  .pack.care .btn{background:var(--orange)}
+
+  /* HOW IT WORKS — a real sequence, so steps are numbered */
+  .how{background:var(--cobalt);color:#fff}
+  .steps{display:grid;gap:1.2rem;list-style:none;padding:0;counter-reset:s}
+  @media(min-width:800px){.steps{grid-template-columns:repeat(4,1fr)}}
+  .steps li{counter-increment:s;background:rgba(255,255,255,.12);border-radius:16px;padding:1.4rem}
+  .steps li::before{content:counter(s);display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--orange);font-family:var(--display);font-weight:800;margin-bottom:.8rem}
+  .steps b{display:block;font-family:var(--display);font-size:1.15rem;margin-bottom:.3rem}
+
+  /* WHY */
+  .why-grid{display:grid;gap:.9rem}
+  @media(min-width:700px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+  .why-grid p{background:#fff;border-radius:14px;padding:1rem 1.2rem}
+  .why-grid b{color:var(--cobalt)}
+
+  /* FAQ */
+  .faq{background:#fff}
+  .faq .wrap{max-width:760px}
+  details{border-bottom:2px solid #e1e5f8;padding:1rem 0}
+  summary{font-family:var(--display);font-weight:600;font-size:1.15rem;cursor:pointer}
+  details p{margin-top:.6rem;color:#454b6b}
+
+  /* CONTACT */
+  .info{list-style:none;padding:0;display:grid;gap:.9rem;font-size:1.15rem;margin-bottom:2rem}
+  .info b{display:inline-block;min-width:6.5rem}
+  .info a{font-weight:700;text-decoration-color:var(--orange)}
+
+  footer{background:var(--deep);color:#d4daf7;padding:1.8rem 0;text-align:center;font-size:.95rem}
+  footer p+p{opacity:.8;margin-top:.2rem}
+
+  .float{position:fixed;right:16px;bottom:16px;z-index:10;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">48H0URs</div>
+    <h1>Websites for Kenyan businesses, <em>live in 48 hours.</em></h1>
+    <p class="lead">I build clean, fast, mobile-friendly websites for Kenyan entrepreneurs — shops, fundis, salons, restaurants, clinics, and schools. One page. WhatsApp button. Live in 48 hours. From 1,000 KSH.</p>
+    <div class="cta">
+      <a class="btn btn-wa" href="https://wa.me/254707240831?text=Hello%2C%20I%20saw%20your%20website%20and%20I%27m%20interested">💬 WhatsApp me now</a>
+      <a class="btn btn-line" href="tel:+254707240831">📞 Call: 0707 240 831</a>
+    </div>
+    <p class="find">Serving businesses across Kenya &nbsp;|&nbsp; Available daily, 8am–8pm</p>
+    <div class="facts">
+      <div><b>1,000 KSH</b>starting price</div>
+      <div><b>48 hours</b>to go live</div>
+      <div><b>1 tap</b>to WhatsApp you</div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap">
+    <h2>Hi, I'm John</h2>
+    <p>I'm a web developer based in Nairobi, and I help Kenyan small businesses get online without the "agency" price tag.</p>
+    <p>Most Kenyan entrepreneurs — fundis, shop owners, salons, restaurants — don't have a website because agencies charge 50,000–100,000 KSH. So I built a system that delivers the same essential thing: a clean, professional, mobile-friendly site with a working WhatsApp button. From 1,000 KSH, live in 48 hours.</p>
+    <p class="bold">No jargon. No hidden fees. No waiting weeks. You send me your details, I build it, you approve it, it goes live.</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="wrap">
+    <h2>What I do</h2>
+    <div class="skill-grid">
+      <div class="skill"><span class="ico">💻</span><h3>Website design &amp; development</h3><p>One-page business websites, mobile-first, fast-loading, clean design. Built to turn visitors into WhatsApp messages and calls.</p></div>
+      <div class="skill"><span class="ico">💬</span><h3>WhatsApp &amp; click-to-call</h3><p>Every site has a working WhatsApp button and click-to-call, so customers reach you in one tap.</p></div>
+      <div class="skill"><span class="ico">🔍</span><h3>Google-ready setup</h3><p>Basic SEO (title, description, location) so your business shows up when people search.</p></div>
+      <div class="skill"><span class="ico">✍️</span><h3>Content &amp; copywriting</h3><p>I write the text for your site, in English or Swahili, so you don't have to.</p></div>
+      <div class="skill"><span class="ico">📷</span><h3>Photo optimization</h3><p>I compress and format your photos so the site loads fast even on weak data.</p></div>
+      <div class="skill"><span class="ico">🌐</span><h3>Hosting &amp; domain setup</h3><p>I handle publishing and hosting, and can set up your own domain (e.g. yourbusiness.co.ke).</p></div>
+      <div class="skill"><span class="ico">⚡</span><h3>Fast delivery</h3><p>A templated system means live in 48 hours, not weeks.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="wrap">
+    <h2>Packages &amp; pricing</h2>
+    <div class="pack-grid">
+      <div class="pack">
+        <h3>🥉 Starter</h3>
+        <div class="price">1,000 KSH <small>one-time</small></div>
+        <ul>
+          <li>One-page website</li>
+          <li>Mobile-friendly design</li>
+          <li>WhatsApp button + click-to-call</li>
+          <li>Your photos, services, location, hours</li>
+          <li>Live in 48 hours</li>
+          <li>Free subdomain (e.g. yourbusiness.netlify.app)</li>
+        </ul>
+        <a class="btn" href="https://wa.me/254707240831?text=Hello%2C%20I%20want%20the%20Starter%20package">Choose Starter</a>
+      </div>
+      <div class="pack best">
+        <span class="tag">Most popular</span>
+        <h3>🥈 Standard</h3>
+        <div class="price">2,500 KSH <small>one-time</small></div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Your own domain (.co.ke or .com), first year included</li>
+          <li>Basic Google setup, so you show up in search</li>
+          <li>2 revisions</li>
+          <li>Live in 48 hours</li>
+        </ul>
+        <a class="btn" href="https://wa.me/254707240831?text=Hello%2C%20I%20want%20the%20Standard%20package">Choose Standard</a>
+      </div>
+      <div class="pack">
+        <h3>🥇 Pro</h3>
+        <div class="price">5,000 KSH <small>one-time</small></div>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Up to 3 pages (Home, Services, Contact)</li>
+          <li>Gallery of your work</li>
+          <li>Google Maps embed</li>
+          <li>3 revisions</li>
+          <li>1 month free support</li>
+        </ul>
+        <a class="btn" href="https://wa.me/254707240831?text=Hello%2C%20I%20want%20the%20Pro%20package">Choose Pro</a>
+      </div>
+      <div class="pack care">
+        <h3>🔁 Care Plan</h3>
+        <div class="price">500 KSH <small>per month, optional add-on</small></div>
+        <ul>
+          <li>Hosting &amp; domain management</li>
+          <li>Monthly content updates (prices, photos, hours)</li>
+          <li>WhatsApp button maintenance</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="btn" href="https://wa.me/254707240831?text=Hello%2C%20I%20want%20the%20Care%20Plan">Add Care Plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>You send your details</b>Business name, phone, WhatsApp, location, services and photos. I'll send you a simple checklist.</li>
+      <li><b>You pay 50% deposit</b>500 KSH via M-Pesa to start.</li>
+      <li><b>I build it</b>Your site is ready within 48 hours. You review it.</li>
+      <li><b>It goes live</b>You pay the balance, I publish it, and send you the link.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- WHY CHOOSE ME -->
+<section class="why" id="why">
+  <div class="wrap">
+    <h2>Why choose me</h2>
+    <div class="why-grid">
+      <p>✅ <b>Affordable.</b> From 1,000 KSH, not 50,000.</p>
+      <p>✅ <b>Fast.</b> Live in 48 hours.</p>
+      <p>✅ <b>Mobile-first.</b> Built for how Kenyans actually browse.</p>
+      <p>✅ <b>WhatsApp built in.</b> The feature that actually brings you customers.</p>
+      <p>✅ <b>No jargon.</b> I speak your language.</p>
+      <p>✅ <b>Real support.</b> Call or WhatsApp me directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <details><summary>Do I need to know anything about websites?</summary><p>No. You send me your details, I handle everything.</p></details>
+    <details><summary>Will it work on phones?</summary><p>Yes. Every site I build is designed for mobile first, because that's where your customers are.</p></details>
+    <details><summary>Can I update it later?</summary><p>Yes, either through the Care Plan (500 KSH/month) or by messaging me for one-off changes.</p></details>
+    <details><summary>What if I don't have photos?</summary><p>I'll help you source clean, relevant images for your business type.</p></details>
+    <details><summary>How do I pay?</summary><p>M-Pesa. 50% deposit to start, 50% on delivery.</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's get your business online</h2>
+    <ul class="info">
+      <li>📞 <b>Phone:</b> <a href="tel:+254707240831">0707240831</a></li>
+      <li>💬 <b>WhatsApp:</b> <a href="https://wa.me/254707240831?text=Hello%2C%20I%20saw%20your%20website%20and%20I%27m%20interested">0707240831</a></li>
+      <li>📍 <b>Based in:</b> Nairobi, Kenya</li>
+      <li>🕐 <b>Available:</b> Daily, 8am–8pm</li>
+      <li>📧 <b>Email:</b> <a href="mailto:your@email.com">dare06839@gmail.com</a></li>
+    </ul>
+    <a class="btn btn-wa" href="https://wa.me/254707240831?text=Hello%2C%20I%20saw%20your%20website%20and%20I%27m%20interested">💬 WhatsApp me now — I reply fast</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© 2026 [Your Name / Agency Name]. All rights reserved.</p>
+    <p>Websites for Kenyan businesses — from 1,000 KSH.</p>
+  </div>
+</footer>
+
+<a class="btn btn-wa float" href="https://wa.me/254707240831?text=Hello%2C%20I%20saw%20your%20website%20and%20I%27m%20interested" aria-label="WhatsApp me">💬 WhatsApp</a>
+
+</body>
+</html>
